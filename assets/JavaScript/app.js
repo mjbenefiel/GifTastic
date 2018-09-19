@@ -5,7 +5,10 @@ $(document).ready(function(){
 //   movie search function
 
 var movies = ["Bird", "Dog", "Cat", "Squirrel"];
-
+var animatedGif;
+var pausedGif;
+var stillGif;
+var currentGif;
       // Function for displaying movie data
       function renderButtons() {
 
@@ -65,11 +68,11 @@ $("button").on("click", function() {
   $("#gifs-appear-here").empty();
     // Grabbing and storing the data-animal property value from the button
     var movies = ["Bird", "Dog", "Cat", "Squirrel"];
-    movies = $(this).attr("data-name");
+    topics = $(this).attr("data-name");
 console.log(movies)
     // Constructing a queryURL using the animal name
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      movies + "&api_key=bjmCLbvWyaPYyHcAHisKO0yoo3c6k7Ix&limit=10";
+      topics + "&api_key=bjmCLbvWyaPYyHcAHisKO0yoo3c6k7Ix&limit=10";
 
     // Performing an AJAX request with the queryURL
     $.ajax({
@@ -82,23 +85,24 @@ console.log(movies)
 
         console.log(response);
         // storing the data from the AJAX request in the results variable
-        movies = response.data;
+        currentGif = response.data;
 
 
   
         // Looping through each result item
-        for (var i = 0; i < movies.length; i++) {
-
+        for (var i = 0; i < currentGif.length; i++) {
+         
           // Creating and storing a div tag
           var animalDiv = $("<div>");
 
           // Creating a paragraph tag with the result item's rating
-          var p = $("<p>").text("Rating: " + movies[i].rating);
+          var p = $("<p>").text("Rating: " + currentGif[i].rating);
 
           // Creating and storing an image tag
-          var animalImage = $("<img>");
+          var animalImage = $("<img class='theGif'>");
           // Setting the src attribute of the image to a property pulled off the result item
-          animalImage.attr("src", movies[i].images.fixed_height.url);
+          animalImage.attr("src", currentGif[i].images.original_still.url);
+          
 
           // Appending the paragraph and image tag to the animalDiv
           animalDiv.append(p);
@@ -107,18 +111,15 @@ console.log(movies)
           // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
           $("#gifs-appear-here").prepend(animalDiv);
          
-        }
+        } // end of for loop
       
 
       });
   });
 
-}
+} // end of ajaxButton function
 
 ajaxButton();
-
-
-
 
 
 

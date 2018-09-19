@@ -62,7 +62,7 @@ var movies = ["Bird", "Dog", "Cat", "Squirrel"];
 function ajaxButton() {
 
 $("button").on("click", function() {
-  
+  $("#gifs-appear-here").empty();
     // Grabbing and storing the data-animal property value from the button
     var movies = ["Bird", "Dog", "Cat", "Squirrel"];
     movies = $(this).attr("data-name");

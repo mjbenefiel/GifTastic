@@ -4,7 +4,7 @@ $(document).ready(function(){
 // DELCARE GLOBAL VARIABLES
 //   movie search function
 
-var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+var movies = ["Bird", "Dog", "Cat", "Squirrel"];
 
       // Function for displaying movie data
       function renderButtons() {
@@ -28,6 +28,7 @@ var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
           a.text(movies[i]);
           // Adding the button to the HTML
           $("#movies-view").append(a);
+          
         }
       }
 
@@ -41,14 +42,16 @@ var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
         // This line will grab the text from the input box
         var movie = $("#movie-input").val().trim();
 
-    
+        
      
         // The movie from the textbox is then added to our array
         movies.push(movie);
+        $('#movie-input').val('');
         
      
         // calling renderButtons which handles the processing of our movie array
         renderButtons();
+        ajaxButton();
        
       });
 
@@ -56,21 +59,17 @@ var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
       renderButtons();
      
 
-
-
-
-
-
-
+function ajaxButton() {
 
 $("button").on("click", function() {
+  
     // Grabbing and storing the data-animal property value from the button
-    
-    var topics = $(this).attr("data-animal");
-
+    var movies = ["Bird", "Dog", "Cat", "Squirrel"];
+    movies = $(this).attr("data-name");
+console.log(movies)
     // Constructing a queryURL using the animal name
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      animal + "&api_key=bjmCLbvWyaPYyHcAHisKO0yoo3c6k7Ix&limit=10";
+      movies + "&api_key=bjmCLbvWyaPYyHcAHisKO0yoo3c6k7Ix&limit=10";
 
     // Performing an AJAX request with the queryURL
     $.ajax({
@@ -83,21 +82,23 @@ $("button").on("click", function() {
 
         console.log(response);
         // storing the data from the AJAX request in the results variable
-        topics = response.data;
+        movies = response.data;
 
+
+  
         // Looping through each result item
-        for (var i = 0; i < results.length; i++) {
+        for (var i = 0; i < movies.length; i++) {
 
           // Creating and storing a div tag
           var animalDiv = $("<div>");
 
           // Creating a paragraph tag with the result item's rating
-          var p = $("<p>").text("Rating: " + results[i].rating);
+          var p = $("<p>").text("Rating: " + movies[i].rating);
 
           // Creating and storing an image tag
           var animalImage = $("<img>");
           // Setting the src attribute of the image to a property pulled off the result item
-          animalImage.attr("src", results[i].images.fixed_height.url);
+          animalImage.attr("src", movies[i].images.fixed_height.url);
 
           // Appending the paragraph and image tag to the animalDiv
           animalDiv.append(p);
@@ -105,11 +106,16 @@ $("button").on("click", function() {
 
           // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
           $("#gifs-appear-here").prepend(animalDiv);
+         
         }
+      
+
       });
   });
 
+}
 
+ajaxButton();
 
 
 

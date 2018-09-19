@@ -91,7 +91,7 @@ console.log(movies)
   
         // Looping through each result item
         for (var i = 0; i < currentGif.length; i++) {
-         
+        
           // Creating and storing a div tag
           var animalDiv = $("<div>");
 
@@ -102,7 +102,11 @@ console.log(movies)
           var animalImage = $("<img class='theGif'>");
           // Setting the src attribute of the image to a property pulled off the result item
           animalImage.attr("src", currentGif[i].images.original_still.url);
+          animalImage.attr("data-still",currentGif[i].images.fixed_height_small_still.url); // still image
+          animalImage.attr("data-animate",currentGif[i].images.fixed_height_small.url); // animated image
+          animalImage.attr("data-state", "still");
           
+     
 
           // Appending the paragraph and image tag to the animalDiv
           animalDiv.append(p);
@@ -117,10 +121,22 @@ console.log(movies)
       });
   });
 
+
+
 } // end of ajaxButton function
 
 ajaxButton();
-
+$(document).on("click", ".movie", ajaxButton);
+$(document).on("click", ".theGif", function(){
+    var state = $(this).attr('data-state');
+    if ( state == 'still'){
+        $(this).attr('src', $(this).data('animate'));
+        $(this).attr('data-state', 'animate');
+    }else{
+        $(this).attr('src', $(this).data('still'));
+        $(this).attr('data-state', 'still');
+    }
+});
 
 
     }); //end of document.ready

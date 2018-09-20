@@ -37,13 +37,15 @@ $(document).ready(function(){
   
         // This function handles events where one button is clicked
         $("#add-movie").on("click", function(event) {
-          
-          // event.preventDefault() prevents the form from trying to submit itself.
+                  // event.preventDefault() prevents the form from trying to submit itself.
           // We're using a form so that the user can hit enter instead of clicking the button if they want
           event.preventDefault();
   
           // This line will grab the text from the input box
           var movie = $("#movie-input").val().trim();
+          if (movie == ""){
+            return false; // added so user cannot add a blank button
+          }
   
           
        
@@ -65,6 +67,7 @@ $(document).ready(function(){
   function ajaxButton() {
   
   $("button").on("click", function() {
+    
     $("#gifs-appear-here").empty();
       // Grabbing and storing the data-animal property value from the button
       var movies = ["Bird", "Dog", "Cat", "Squirrel"];

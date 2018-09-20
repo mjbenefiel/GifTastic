@@ -4,7 +4,7 @@ $(document).ready(function(){
   // DELCARE GLOBAL VARIABLES
   //   movie search function
   
-  var movies = ["Bird", "Dog", "Cat", "Squirrel"];
+  var topics = ["Bird", "Dog", "Cat", "Squirrel"];
   var animatedGif;
   var pausedGif;
   var stillGif;
@@ -18,7 +18,7 @@ $(document).ready(function(){
           
   
           // Looping through the array of movies
-          for (var i = 0; i < movies.length; i++) {
+          for (var i = 0; i < topics.length; i++) {
   
             // Then dynamicaly generating buttons for each movie in the array.
             // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
@@ -26,9 +26,9 @@ $(document).ready(function(){
             // Adding a class
             a.addClass("movie");
             // Adding a data-attribute with a value of the movie at index i
-            a.attr("data-name", movies[i]);
+            a.attr("data-name", topics[i]);
             // Providing the button's text with a value of the movie at index i
-            a.text(movies[i]);
+            a.text(topics[i]);
             // Adding the button to the HTML
             $("#movies-view").append(a);
             
@@ -50,7 +50,7 @@ $(document).ready(function(){
           
        
           // The movie from the textbox is then added to our array
-          movies.push(movie);
+          topics.push(movie);
           $('#movie-input').val('');
           
        
@@ -70,9 +70,9 @@ $(document).ready(function(){
     
     $("#gifs-appear-here").empty();
       // Grabbing and storing the data-animal property value from the button
-      var movies = ["Bird", "Dog", "Cat", "Squirrel"];
+      var topics = ["Bird", "Dog", "Cat", "Squirrel"];
       topics = $(this).attr("data-name");
-  console.log(movies)
+  console.log(topics)
       // Constructing a queryURL using the animal name
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         topics + "&api_key=bjmCLbvWyaPYyHcAHisKO0yoo3c6k7Ix&limit=10";
@@ -100,7 +100,7 @@ $(document).ready(function(){
   
             // Creating a paragraph tag with the result item's rating
             var p = $("<p>").text("Rating: " + currentGif[i].rating);
-  
+           
             // Creating and storing an image tag
             var animalImage = $("<img class='theGif'>");
             // Setting the src attribute of the image to a property pulled off the result item
@@ -112,8 +112,9 @@ $(document).ready(function(){
        
   
             // Appending the paragraph and image tag to the animalDiv
-            animalDiv.append(p);
+          
             animalDiv.append(animalImage);
+            animalDiv.append(p);
   
             // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
             $("#gifs-appear-here").prepend(animalDiv);

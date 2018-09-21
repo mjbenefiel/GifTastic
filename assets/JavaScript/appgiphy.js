@@ -96,7 +96,7 @@ $(document).ready(function(){
             for (var i = 0; i < currentGif.length; i++) {
             
               // Creating and storing a div tag
-              var animalDiv = $("<div>");
+              var animalDiv = $("<div class='customCol col-md-4'>");
     
               // Creating a paragraph tag with the result item's rating
               var p = $("<p>").text("Rating: " + currentGif[i].rating);

@@ -145,3 +145,12 @@ input[type=text]:focus {
   outline: none;
   border: 1px solid white;
 }
+
+.customCol {
+  
+  display:inline-block;
+  height:auto;
+  width:auto;
+  margin: 0px;
+  padding-top: 25px;
+}

@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
+@import url(https://fonts.googleapis.com/css?family=Lato:100);
+@media screen and (max-width: 800px) {
+  input, button {
+    width: 160px !important;
+  }
+}
+
+body {
+  background: black;
+  text-align: center;
+  font-family: "Lato";
+}
+
+body > div {
+  -webkit-animation: fadeIn 1.5s ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  color: #aff;
+}
+
+h3 {
+  color: #9df;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    height: 50%;
+    width: 50%;
+   
+}
+
+button {
+  margin: 0 4px;
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+  padding: 8px 30px;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid white;
+  transition: background 0.6s ease-out, transform 0.4s ease-in;
+  transform: scale(1, 1);
+}
+
+#add-movie {
+    margin: 0 4px;
+    font-family: "Source Sans Pro";
+    font-size: 16px;
+    padding: 8px 30px;
+    letter-spacing: 3px;
+    border-radius: 2px;
+    color: #fff;
+    background: transparent;
+    border: 1px solid white;
+    transition: background 0.6s ease-out, transform 0.4s ease-in;
+    transform: scale(1, 1);
+  }
+
+  
+#movie-input {
+    margin: 0 4px;
+    font-family: "Source Sans Pro";
+    font-size: 16px;
+    padding: 8px 30px;
+    letter-spacing: 3px;
+    border-radius: 2px;
+    color: #fff;
+    background: transparent;
+    border: 1px solid white;
+    transition: background 0.6s ease-out, transform 0.4s ease-in;
+    transform: scale(1, 1);
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 80%;
+}
+
+button:hover {
+  color: #2cf;
+  background: rgba(255, 255, 255, 1);
+}
+
+button:active {
+  transition: 0.2s background, transform 0.1s ease-out, 0.4s color ease-out;
+  transform: scale(1.04, .94);
+  color: white;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+button:focus {
+  outline: none;
+}
+
+.search {
+  width: 400px;
+}
+
+input[type=text] {
+  margin: 0 4px;
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+  padding: 8px 30px;
+  letter-spacing: 3px;
+  color: #fff;
+  background-position: -1px 0;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  transition: border-bottom 1s, border-left 0.55s ease-in-out, border-right 0.5s ease-in-out, border-top 0.44s;
+  background: transparent;
+  /* border-bottom: 1px solid white;*/
+}
+
+input[type=text]:hover {
+  transition: background-position 0.5s, border 0.5s;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.0) 105%);
+  /*border-bottom: 1px solid rgb(255,255,255);
+  background-position: 191px 0;
+  */
+  
+  background-position: 398px 0;
+  border: 1px solid white;
+}
+
+input[type=text]:focus {
+  transition: border 0.5s;
+  background-position: 0 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.0) 105%);
+  outline: none;
+  border: 1px solid white;
+}

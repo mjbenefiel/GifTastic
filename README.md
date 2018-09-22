@@ -1,14 +1,31 @@
-# GifTastic
+Project: Giphy Search Engine | Favorite 'Saturday Night Live' Cast Member
 
-- Link to GIPHY API
-- Preset buttons
-- Rating associated with each image
-- Click button, 10 images appear
-- Click image, GIF animation starts
-- Click image again, GIF animation stops
-- Add search term button in search field
+Author: Michael Benefiel
 
-- 0612 activity has single button function
-- 0613 activity has preset multiple button functionality
-- 0614 activity has preset button option dynamically with ratings
-- 0607 activity dynamically adds buttons
+Why I created this project:
+
+Homework for the University of Kansas Coding Boot Camp, and to develop basic JS skills.
+
+Feel free to use some or all of this code if you're trying to complete a similar project.
+
+THE PROJECT
+
+Bootstrap 4.1.2 jQuery 3.3.1
+
+- Delcared variables
+
+- generatedButton function loops through array of topics and assigns each one to a button, then appends them to the comedian-view div
+
+- #add-comedian onClick pulls information typed into search box, allows user to hit the submit button and then push the information into a button. There's also a condition set up that restricts a user from pushing a blank button to the comedian-view
+
+- gifButton function uses AJAX call to "talk" with the GIPHY API to pull GIFs into my web app
+
+- Search query set up to only pull 10 GIFs per search
+
+- for loop runs through pulled GIFs
+
+- variable declared to set rating of GIF
+
+- attributes designating still and animated images
+
+- document onClick assigned to GIFs that allows user to click an image for animated effect, and click again for original/still effect.

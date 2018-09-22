@@ -10,7 +10,7 @@ $(document).ready(function () {
 	var stillGif;
 	var currentGif;
 	// Function for submitting search data
-	function submitButton() {
+	function generatedButton() {
 
 		// clears submitted buttons before new one appears in order to account for duplicates
 		$("#comedian-view").empty();
@@ -49,14 +49,14 @@ $(document).ready(function () {
 		$('#comedian-input').val('');
 
 
-		// calling renderButtons which handles the processing of our topics array
-		submitButton();
+		// calling generatedButton which handles the processing of our topics array
+		generatedButton();
 		gifButton();
 
 	});
 
-	// Calling the submitButton function at least once to display the initial list of topics
-	submitButton();
+	// Calling the generatedButton function at least once to display the initial list of topics
+	generatedButton();
 
 
 	function gifButton() {

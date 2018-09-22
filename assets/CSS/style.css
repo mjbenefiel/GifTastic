@@ -43,6 +43,10 @@ h3 {
    
 }
 
+p {
+  color: white; 
+}
+
 button {
   margin: 0 4px;
   font-family: "Source Sans Pro";
@@ -71,11 +75,18 @@ button {
     transform: scale(1, 1);
   }
 
+  #add-movie:hover {
+    color: #2cf;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 1);
+  }
+
   
 #movie-input {
     margin: 0 4px;
     font-family: "Source Sans Pro";
     font-size: 16px;
+    width: 40%;
     padding: 8px 30px;
     letter-spacing: 3px;
     border-radius: 2px;
@@ -87,12 +98,13 @@ button {
   }
 
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
+    color: #9df;
     opacity: 80%;
 }
 
 button:hover {
   color: #2cf;
+  font-weight: bold;
   background: rgba(255, 255, 255, 1);
 }
 

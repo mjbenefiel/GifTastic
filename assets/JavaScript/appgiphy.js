@@ -4,7 +4,7 @@ $(document).ready(function(){
     // DELCARE GLOBAL VARIABLES
     //   movie search function
     
-    var topics = ["Bird", "Dog", "Cat", "Squirrel"];
+    var topics = ["Bill Murray", "Chris Farley", "Tim Meadows", "Tina Fey", "Will Ferrell"];
     var animatedGif;
     var pausedGif;
     var stillGif;
@@ -70,7 +70,7 @@ $(document).ready(function(){
       
       $("#gifs-appear-here").empty();
         // Grabbing and storing the data-animal property value from the button
-        var topics = ["Bird", "Dog", "Cat", "Squirrel"];
+        var topics = ["Bill Murray", "Chris Farley", "Tim Meadows", "Tina Fey", "Will Ferrell"];
         topics = $(this).attr("data-name");
     console.log(topics)
         // Constructing a queryURL using the animal name

@@ -61,7 +61,7 @@ button {
   transform: scale(1, 1);
 }
 
-#add-movie {
+#add-comedian {
     margin: 0 4px;
     font-family: "Source Sans Pro";
     font-size: 16px;
@@ -75,14 +75,14 @@ button {
     transform: scale(1, 1);
   }
 
-  #add-movie:hover {
+  #add-comedian:hover {
     color: #2cf;
     font-weight: bold;
     background: rgba(255, 255, 255, 1);
   }
 
   
-#movie-input {
+#comedian-input {
     margin: 0 4px;
     font-family: "Source Sans Pro";
     font-size: 16px;

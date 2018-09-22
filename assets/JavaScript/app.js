@@ -1,79 +1,75 @@
 $(document).ready(function(){
 
 
-    // DELCARE GLOBAL VARIABLES
-    //   movie search function
+    // Declare variables
+    
     
     var topics = ["Bill Murray", "Chris Farley", "Tim Meadows", "Tina Fey", "Will Ferrell"];
     var animatedGif;
     var pausedGif;
     var stillGif;
     var currentGif;
-          // Function for displaying movie data
-          function renderButtons() {
+          // Function for submitting search data
+          function submitButton() {
     
-            // Deleting the movie buttons prior to adding new movie buttons
-            // (this is necessary otherwise we will have repeat buttons)
-            $("#movies-view").empty();
+            // clears submitted buttons before new one appears in order to account for duplicates
+            $("#comedian-view").empty();
             
     
-            // Looping through the array of movies
+            // Looping through the array of topics
             for (var i = 0; i < topics.length; i++) {
     
-              // Then dynamicaly generating buttons for each movie in the array.
-              // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+            //  dynamically generating button, class, attribute and appending button to #comedian-view div
               var a = $("<button>");
-              // Adding a class
-              a.addClass("movie");
-              // Adding a data-attribute with a value of the movie at index i
+              a.addClass("comedian");
+              // Adding a data-attribute with a value of the topic at index i
               a.attr("data-name", topics[i]);
-              // Providing the button's text with a value of the movie at index i
+              // Providing the button's text with a value of the topic at index i
               a.text(topics[i]);
-              // Adding the button to the HTML
-              $("#movies-view").append(a);
+              $("#comedian-view").append(a);
               
             }
           }
     
           // This function handles events where one button is clicked
-          $("#add-movie").on("click", function(event) {
-                    // event.preventDefault() prevents the form from trying to submit itself.
-            // We're using a form so that the user can hit enter instead of clicking the button if they want
+          $("#add-comedian").on("click", function(event) {
+          //  prevents default action associated with the click
             event.preventDefault();
     
-            // This line will grab the text from the input box
-            var movie = $("#movie-input").val().trim();
-            if (movie == ""){
+            // This line will grab the text from the input box and remove any white space from beginning and end
+            var comedian = $("#comedian-input").val().trim();
+            if (comedian == ""){
               return false; // added so user cannot add a blank button
             }
     
             
          
-            // The movie from the textbox is then added to our array
-            topics.push(movie);
-            $('#movie-input').val('');
+            // The search term from the textbox is then added to our array
+            topics.push(comedian);
+            // clears out search input after topic is submitted
+            $('#comedian-input').val('');
             
          
-            // calling renderButtons which handles the processing of our movie array
-            renderButtons();
-            ajaxButton();
+            // calling renderButtons which handles the processing of our topics array
+            submitButton();
+            gifButton();
            
           });
     
-          // Calling the renderButtons function at least once to display the initial list of movies
-          renderButtons();
+          // Calling the submitButton function at least once to display the initial list of topics
+          submitButton();
          
     
-    function ajaxButton() {
+    function gifButton() {
     
     $("button").on("click", function() {
       
       $("#gifs-appear-here").empty();
-        // Grabbing and storing the data-animal property value from the button
+        // Grabbing and storing the topics array
         var topics = ["Bill Murray", "Chris Farley", "Tim Meadows", "Tina Fey", "Will Ferrell"];
         topics = $(this).attr("data-name");
     console.log(topics)
-        // Constructing a queryURL using the animal name
+        // Constructing a queryURL using the topics name
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
           topics + "&api_key=bjmCLbvWyaPYyHcAHisKO0yoo3c6k7Ix&limit=10";
     
@@ -87,37 +83,37 @@ $(document).ready(function(){
             console.log(queryURL);
     
             console.log(response);
-            // storing the data from the AJAX request in the results variable
+            // storing the data from the AJAX request in the currentGif variable
             currentGif = response.data;
     
     
       
-            // Looping through each result item
+            // Looping through each item
             for (var i = 0; i < currentGif.length; i++) {
             
               // Creating and storing a div tag
-              var animalDiv = $("<div class='customCol col-md-4'>");
+              var comedianDiv = $("<div class='customCol col-md-4'>");
     
-              // Creating a paragraph tag with the result item's rating
+              // Creating a paragraph tag with the item's rating
               var p = $("<p>").text("Rating: " + currentGif[i].rating);
              
               // Creating and storing an image tag
-              var animalImage = $("<img class='theGif'>");
+              var comedianImage = $("<img class='theGif'>");
               // Setting the src attribute of the image to a property pulled off the result item
-              animalImage.attr("src", currentGif[i].images.fixed_height_small_still.url);
-              animalImage.attr("data-still",currentGif[i].images.fixed_height_small_still.url); // still image
-              animalImage.attr("data-animate",currentGif[i].images.fixed_height_small.url); // animated image
-              animalImage.attr("data-state", "still");
+              comedianImage.attr("src", currentGif[i].images.fixed_height_small_still.url);
+              comedianImage.attr("data-still",currentGif[i].images.fixed_height_small_still.url); // still image
+              comedianImage.attr("data-animate",currentGif[i].images.fixed_height_small.url); // animated image
+              comedianImage.attr("data-state", "still");
               
          
     
-              // Appending the paragraph and image tag to the animalDiv
+              // Appending the paragraph and image tag to the comedianDiv
             
-              animalDiv.append(animalImage);
-              animalDiv.append(p);
+              comedianDiv.append(comedianImage);
+              comedianDiv.append(p);
     
-              // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-              $("#gifs-appear-here").prepend(animalDiv);
+              // Prependng the comedianDiv to the HTML page in the "#gifs-appear-here" div
+              $("#gifs-appear-here").prepend(comedianDiv);
              
             } // end of for loop
           
@@ -127,11 +123,11 @@ $(document).ready(function(){
     
     
     
-    } // end of ajaxButton function
+    } // end of gifButton function
     
-    ajaxButton();
+    gifButton();
    
-   
+  //  if/else statement that provides functionality for still/animate states onClick of .theGif
     $(document).on("click", ".theGif", function(){
         var state = $(this).attr('data-state');
         if ( state == 'still'){

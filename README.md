@@ -1,16 +1,34 @@
-Project: Giphy Search Engine | Favorite 'Saturday Night Live' Cast Member
+<h1> Giphy Search Engine | Favorite SNL Cast Member </h1>
+<hr></hr>
 
 Author: Michael Benefiel
 
-Why I created this project:
-
-Homework for the University of Kansas Coding Boot Camp.
-
 Feel free to use some or all of this code if you're trying to complete a similar project.
+<hr></hr>
 
-THE PROJECT
+<h3> App screenshot </h3>
 
-Bootstrap 4.1.2 jQuery 3.3.1
+![alt text](https://raw.githubusercontent.com/mjbenefiel/GifTastic/master/assets/images/readme.jpg "Giphy Search Engine")
+
+<h2> Project overview</h2>
+Kind of like Google, but for Giphy. This app utilizes jQuery and the Giphy API to search for GIFs.
+<hr></hr>
+
+<h2> How it works </h2>
+Type in the gif you're looking for. Hit submit. Similar to the Google Search Engine. Simple and easy.
+<hr></hr>
+
+<h2>Technology used</h2>
+
+[Giphy API](https://developers.giphy.com/)
+
+[Bootstrap 4.1.2 ](http://getbootstrap.com/)
+
+[jQuery 3.3.1](https://jquery.com/)
+
+<hr></hr>
+
+<h4>Below is a thorough, but not comprehensive, step-by-step process of how I got the app running in terms of code</h4>
 
 - Delcared variables
 

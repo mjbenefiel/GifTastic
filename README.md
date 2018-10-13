@@ -10,7 +10,10 @@ Feel free to use some or all of this code if you're trying to complete a similar
 
 ![alt text](https://raw.githubusercontent.com/mjbenefiel/GifTastic/master/assets/images/readme.jpg "Giphy Search Engine")
 
+<h2> Project overview</h2>
+Kind of like Google, but for Giphy. This app utilizes jQuery and the Giphy API to search for GIFs.
 <hr></hr>
+
 <h2> How it works </h2>
 Type in the gif you're looking for. Hit submit. Similar to the Google Search Engine. Simple and easy.
 <hr></hr>

@@ -1,4 +1,4 @@
-<h1> Giphy Search Engine | Favorite SNL Cast Member </h1>
+<h1>Giphy Search Engine </h1>
 
 Live version: https://mjbenefiel.github.io/GifTastic/
 <hr></hr>
